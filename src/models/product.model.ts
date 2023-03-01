@@ -1,8 +1,8 @@
 import {model, property} from '@loopback/repository';
-import {SoftDeleteEntity} from 'loopback4-soft-delete';
+import {UserModifiableEntity} from '@sourceloop/core';
 
 @model()
-export class Product extends SoftDeleteEntity {
+export class Product extends UserModifiableEntity {
   @property({
     type: 'number',
     id: true,

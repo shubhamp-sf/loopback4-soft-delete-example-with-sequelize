@@ -1,14 +1,14 @@
 import {inject} from '@loopback/core';
-import {IUser} from 'loopback4-soft-delete';
-import {SequelizeSoftCrudRepository} from 'loopback4-soft-delete/sequelize';
+import {IAuthUserWithPermissions} from '@sourceloop/core';
+import {SequelizeUserModifyCrudRepository} from '@sourceloop/core/sequelize';
 import {DbDataSource} from '../datasources';
 import {Product, ProductRelations} from '../models';
 
-const loggedInUserData: IUser = {
+const loggedInUserData = {
   id: 1,
-};
+} as unknown as IAuthUserWithPermissions;
 
-export class ProductRepository extends SequelizeSoftCrudRepository<
+export class ProductRepository extends SequelizeUserModifyCrudRepository<
   Product,
   typeof Product.prototype.id,
   ProductRelations
